@@ -17,7 +17,7 @@ gem 'bson_ext'
 gem 'mongo_mapper', :git => "git://github.com/mongomapper/mongomapper.git"
 gem 'mongo_mapper-token_keys'
 
-gem 'omniauth-jwt'
+gem 'omniauth-jwt', '>= 0.0.2'
 
 group :development, :test do
   gem 'rspec-rails'

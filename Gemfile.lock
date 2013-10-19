@@ -128,7 +128,7 @@ GEM
     omniauth (1.1.4)
       hashie (>= 1.2, < 3)
       rack
-    omniauth-jwt (0.0.1)
+    omniauth-jwt (0.0.2)
       jwt
       omniauth (~> 1.1)
     plucky (0.6.6)
@@ -219,7 +219,7 @@ DEPENDENCIES
   less-rails-bootstrap
   mongo_mapper!
   mongo_mapper-token_keys
-  omniauth-jwt
+  omniauth-jwt (>= 0.0.2)
   rails (= 4.0.0)
   rspec-rails
   therubyracer

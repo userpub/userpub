@@ -1,6 +1,5 @@
-#= require unstable/angular
-#= require unstable/angular-animate
-#= require unstable/angular-bootstrap
-#= require unstable/angular-resource
+#= require angular
+#= require angular-animate
+#= require angular-resource
 
-#= require_tree .
+#= require_tree ./application
