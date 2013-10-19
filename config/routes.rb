@@ -4,6 +4,7 @@ Userpub::Application.routes.draw do
   end
   
   constraints LanderConstraint.new(false) do
-    
+    get '/auth/jwt/callback', to: 'sessions#create'
+    get '*', to: 'accounts#show'
   end
 end

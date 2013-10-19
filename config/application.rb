@@ -30,6 +30,7 @@ module Userpub
       g.orm             :mongo_mapper
       g.template_engine :erb
       g.test_framework  :rspec
+      g.helper = false
     end
   end
 end

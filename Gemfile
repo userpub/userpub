@@ -14,10 +14,16 @@ gem 'jbuilder', '~> 1.2'
 gem 'dotenv-rails'
 
 gem 'bson_ext'
-gem 'mongo_mapper', :git => "git://github.com/mongomapper/mongomapper.git", :tag => "v0.13.0.beta2"
+gem 'mongo_mapper', :git => "git://github.com/mongomapper/mongomapper.git"
+gem 'mongo_mapper-token_keys'
+
+gem 'omniauth-jwt'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.1.0'
   gem 'capistrano', '~> 2.15'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'database_cleaner'
 end

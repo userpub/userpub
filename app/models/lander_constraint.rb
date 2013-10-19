@@ -4,7 +4,7 @@ class LanderConstraint
   end
   
   def matches?(request)
-    lander = (request.subdomain == 'www')
-    @on ? !lander : lander
+    lander = (ENV['DEBUG_SUBDOMAIN'] || request.subdomain) == 'www'
+    @on ? lander : !lander
   end
 end
