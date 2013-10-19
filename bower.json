@@ -7,6 +7,8 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
+      "angular":"1.2.0-rc.2",
+      "angular-fire": "git://github.com/firebase/angularFire.git"
     }
   }
 }

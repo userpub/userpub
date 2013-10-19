@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   def create
-    render json: auth_hash
+    user = User.from_jwt(auth_hash.extra.raw_info)
+    reset_session
+    session[:user_id] = user.id.to_s
+    redirect_to session['omniauth.origin'] || '/'
   end
   
   protected

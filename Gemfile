@@ -20,6 +20,8 @@ gem 'mongo_mapper-token_keys'
 
 gem 'omniauth-jwt', '>= 0.0.2'
 
+gem 'gravatar-ultimate'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails', '~> 4.1.0'
