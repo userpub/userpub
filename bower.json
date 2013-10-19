@@ -7,8 +7,13 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
-      "angular":"1.2.0-rc.2",
-      "angular-fire": "git://github.com/firebase/angularFire.git"
+      "angular":"1.2.0-rc.3",
+      "angular-animate":"1.2.0-rc.3",
+      "angular-resource":"1.2.0-rc.3",
+      "angular-fire": ""
+    },
+    "resolutions": {
+      "angular": "1.2.0-rc.3"
     }
   }
 }

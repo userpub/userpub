@@ -1,2 +1,2 @@
-#= require angular
-#= require angular-animate
+#= require angular/angular
+#= require angular-animate/angular-animate

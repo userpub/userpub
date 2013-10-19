@@ -1,10 +1,4 @@
 GIT
-  remote: git://github.com/hiravgandhi/angularjs-rails.git
-  revision: 26b1cb4ba1a4615e1d02531a311227a198172eaf
-  specs:
-    angularjs-rails (1.2.0.rc2)
-
-GIT
   remote: git://github.com/mongomapper/mongomapper.git
   revision: a84e4a99facd81c1a89046a25c75c8f895d3a0e3
   specs:
@@ -207,7 +201,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angularjs-rails!
   bower-rails (~> 0.5.0)
   bson_ext
   capistrano (~> 2.15)
