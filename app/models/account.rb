@@ -6,12 +6,12 @@ class Account
   key :host, String
   key :email, String, required: true
   key :login_url, String
-  
   token :secret, size: 20
-  
   timestamps!
   
   validates_uniqueness_of :subdomain, :host, :email
+  
+  many :users
   
   def self.find_by_env(env)
     return find_by_subdomain(ENV['DEBUG_SUBDOMAIN']) if ENV['DEBUG_SUBDOMAIN'] && ENV['RACK_ENV'] == 'development'

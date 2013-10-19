@@ -1,0 +1,14 @@
+<span class="name">{{user.d.name}}</span>
+
+<section class="chat" ng-controller="ChatCtrl">
+  <ul class="chat-messages">
+    <li ng-repeat="message in messages" class="chat-message" ng-init="authorIds[$index] = message.user.id">
+      <span class="author" ng-bind="message.user.name" ng-hide="authorIds[$index-1] == message.user.id"> Author Name</span>
+      <span class="message" ng-bind="message.text">Content of the message goes here.</span>
+    </li>
+  </ul>
+  <form ng-submit="sendMessage()">
+    <textarea ng-model="draft.text" ng-keypress="messageKeypress($event)"></textarea>
+    <button type="submit">Send</button>
+  </form>
+</section>

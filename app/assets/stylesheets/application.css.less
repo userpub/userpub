@@ -1,13 +1,26 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+@import "custom_bootstrap/custom_bootstrap.less";
+
+.chat-messages {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-message {
+  font-size: 14px;
+  
+  .author {
+    font-weight: bold;
+    display: block;
+    float: left;
+    width: 130px;
+    padding: 4px 8px;
+    text-align: right;
+  }
+  
+  .message {
+    margin-left: 130px;
+    display: block;
+    padding: 4px 8px;
+  }
+}

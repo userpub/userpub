@@ -5,6 +5,7 @@ class User
   key :name, String, required: true
   key :email, String, required: true
   key :admin, Boolean, default: false
+  key :staff, Boolean, default: false
   key :title, String
   key :pic, String
   
@@ -12,8 +13,10 @@ class User
   
   belongs_to :account
   
-  def self.from_jwt(jwt)
-    user = find_by_uid(jwt.id)
+  validates_uniqueness_of :email, :uid, scope: :account_id
+  
+  def self.from_jwt(jwt, account)
+    user = account.users.find_by_uid(jwt.id)
     user ||= User.new(uid: jwt.id)
     
     user.name = jwt.name
@@ -29,5 +32,9 @@ class User
   
   def avatar
     pic || Gravatar.new(email).image_url
+  end
+  
+  def firebase_token
+    JWT.encode({iat: Time.now.to_i, v: 0, d: as_json}, ENV['FIREBASE_SECRET'])
   end
 end

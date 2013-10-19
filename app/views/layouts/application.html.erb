@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="userpub">
+<head>
+  <title>Userpub</title>  
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Source+Code+Pro|Bree+Serif" rel="stylesheet" type="text/css">
+  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  <script type="text/javascript">
+    window.state = {
+      user: <%=raw current_user.to_json %>,
+      account: <%=raw current_account.to_json %>,
+      firebase: "https://<%= ENV['FIREBASE'] %>.firebaseio.com/accounts/<%= current_account.id %>",
+      firebase_token: <%=raw current_user.firebase_token.to_json %>
+    }
+  </script>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body ng-controller="MainCtrl">
+  <%= yield %>
+</body>
+</html>
