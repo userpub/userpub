@@ -8,6 +8,7 @@ gem 'less-rails'
 gem 'less-rails-bootstrap'
 gem 'angularjs-rails', git: 'git://github.com/hiravgandhi/angularjs-rails.git'
 gem 'therubyracer'
+gem "bower-rails", "~> 0.5.0"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
