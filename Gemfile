@@ -13,6 +13,7 @@ gem 'therubyracer'
 gem 'jbuilder', '~> 1.2'
 gem 'dotenv-rails'
 
+gem 'bson_ext'
 gem 'mongo_mapper', :git => "git://github.com/mongomapper/mongomapper.git", :tag => "v0.13.0.beta2"
 
 group :development, :test do
