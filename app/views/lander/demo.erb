@@ -1,0 +1,32 @@
+<header class='lander-top'>
+  <h1>Userpub.</h1>
+  <h2>Want to take Userpub for a spin? Awesome, it couldn't be easier.</h2>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <h1 class="text-center">Userpub Demo Account</h1>
+      <p class="lead">Judging is hard, so I tried to make it easy. Just enter your name and you'll be up and running.</p>
+      <p>Of course, I would be remiss if I didn't point out that this demo account was easy to create because of Userpub's simple JSON Web Token single sign-on functionality. It takes less than 10 lines of code to integrate your app with Userpub, so really there's no excuse not to do it!</p>
+    </div>
+    <div class="col-md-5 demo-sign-in">
+      <p class="text-center"><i class="icon icon-hand-down"></i></p>
+      <div class="panel panel-primary">
+        <div class="panel-heading">Sign into the Demo Account
+        </div>
+        <div class="panel-body">
+          <%= form_tag "/demo", method: "post" do %>
+            <div class="form-group">
+              <label class="control-label">Your Name</label>
+              <div class="controls">
+                <input type="text" class="form-control" placeholder="Maurice Moss" name="name">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Give it a Spin!</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

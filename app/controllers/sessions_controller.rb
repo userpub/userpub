@@ -6,6 +6,18 @@ class SessionsController < ApplicationController
     redirect_to session['omniauth.origin'] || '/'
   end
   
+  def demo
+    account = Account.find_by_subdomain('demo')
+    payload = JWT.encode({
+      id: params[:name].gsub(" ","").underscore,
+      name: params[:name],
+      email: 'demo@example.com',
+      staff: false,
+      admin: false
+    }, account.secret)
+    redirect_to "http://demo.#{ENV['APP_HOST']}/auth/jwt/callback?jwt=#{payload}"
+  end
+  
   protected
   
   def auth_hash
