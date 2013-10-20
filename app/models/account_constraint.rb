@@ -4,7 +4,7 @@ class AccountConstraint
   end
   
   def matches?(request)
-    match = !!Account.from_env(request.env)
+    match = !!Account.find_by_env(request.env)
     match = !match if @inverse
     match
   end
