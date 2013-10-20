@@ -21,6 +21,6 @@ class Account
     host = request.host
     Rails.logger.debug "Account: looking up account for #{request.host}"
     subdomain = host.split('.').first if host.include?(ENV['APP_HOST'])
-    Account.where(:$or => [{subdomain: subdomain}, {host: host}]).first
+    Account.find_by_subdomain(subdomain) || Account.find_by_host(request.host)
   end
 end
