@@ -1,8 +1,10 @@
-app = angular.module('userpub', ['ngAnimate', 'firebase', 'ngRoute', 'ngSanitize', 'ui.bootstrap', 'emoji'])
+app = angular.module('userpub', ['ngAnimate', 'firebase', 'ngRoute', 'ngSanitize', 'ui.bootstrap', 'emoji', 'notifications'])
 
-app.run ['$rootScope', 'angularFireAuth', ($rootScope, angularFireAuth)->
+app.run ['$rootScope', 'angularFireAuth', '$notification', ($rootScope, angularFireAuth, $notification)->
   $rootScope.firebase = new Firebase(state.firebase + '/')
   $rootScope.account = state.account
+  
+  $notification.enableHtml5Mode()
   
   angularFireAuth.initialize $rootScope.firebase,
     scope: $rootScope

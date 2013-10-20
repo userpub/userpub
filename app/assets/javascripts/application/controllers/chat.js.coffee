@@ -1,13 +1,27 @@
 app = angular.module('userpub')
 
-app.controller 'ChatCtrl', ['$scope','angularFire','$timeout', ($scope, angularFire, $timeout)->
+app.controller 'ChatCtrl', ['$scope','angularFire','$timeout','$notification', ($scope, angularFire, $timeout, $notification)->
   $scope.messages = []
   ref = $scope.firebase.child("chat")
   
+  hiddenPrefix = ->
+    if 'hidden' in document
+      return 'hidden'
+    
+    for prefix in ['webkit','moz','ms','o']
+      if (prefix + 'Hidden') in document
+        return prefix + 'Hidden'
+    
+    null
+  
+  ref.on 'child_added', (snapshot)->
+    message = snapshot.val()
+    $notification.info message.user.name, message.text if document.webkitHidden
+    
   angularFire ref.limit(150), $scope, "messages"
   
   $scope.$watch 'messages', ->
-    $timeout -> $(window).scrollTop(999999999) if $scope.bottomProximity < 200
+    $timeout -> $(window).scrollTop(999999999) if $scope.bottomProximity < 800
   , true
   
   $scope.authorIds = []
@@ -28,5 +42,6 @@ app.controller 'ChatCtrl', ['$scope','angularFire','$timeout', ($scope, angularF
       user: authorDetails($scope.user.d)
       text: $scope.draft.text
     
-    $scope.draft.text = null
+    $(window).scrollTop(999999999)
+    $scope.draft.text = ""
 ]

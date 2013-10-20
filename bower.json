@@ -15,6 +15,7 @@
       "angular-fire": "",
       "angular-bootstrap":"",
       "angular-emoji-filter":"",
+      "angular-notifications":"git://github.com/DerekRies/angular-notifications.git",
       "marked":"",
       "animate.css":"",
       "jquery":"",
