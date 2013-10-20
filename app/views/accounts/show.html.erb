@@ -2,7 +2,7 @@
   <div class="navbar-header">
     <a class="navbar-brand" ng-bind="account.name" href="/">Userpub Account</a>
   </div>
-  <div class="btn-group navbar-right navbar-btn account-menu">
+  <div class="btn-group navbar-right navbar-btn account-menu" ng-if="user">
     <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" ><span class="name"ng-bind="user.d.name">Account Menu</span> <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <li>
@@ -10,6 +10,7 @@
       </li>
     </ul>
   </div>
+  <a class="btn btn-default navbar-btn navbar-right account-menu" href="/auth/jwt" target="_self" ng-unless="user">Sign In</a>
 </nav>
 
 <section class="chat layout-card" ng-controller="ChatCtrl">
@@ -19,9 +20,12 @@
       <span class="message" ng-bind-html="message.text | chatMessage">Content of the message goes here.</span>
     </li>
   </ul>
-  <form ng-submit="sendMessage()" class="chat-box">
+  <form ng-submit="sendMessage()" class="chat-box" ng-if="user">
     <textarea class="form-control" rows="2" ng-model="draft.text" ng-keypress="messageKeypress($event)"></textarea><button type="submit" class="btn btn-primary">Send</button>
   </form>
+  <div class="chat-box" ng-unless="user">
+    <p class='lead text-center chat-join'>Join the conversation! <a href="/auth/jwt" target="_self">Sign in Now</a>.</p>
+  </div>
 </section>
 
 <section class='content' ng-view></section>

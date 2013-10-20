@@ -10,7 +10,7 @@
       user: <%=raw current_user.to_json %>,
       account: <%=raw current_account.to_json %>,
       firebase: "https://<%= ENV['FIREBASE'] %>.firebaseio.com/accounts/<%= current_account.id %>",
-      firebase_token: <%=raw current_user.firebase_token.to_json %>
+      firebase_token: <%=raw current_user.try(:firebase_token).to_json %>
     }
   </script>
   <%= javascript_include_tag "application" %>
