@@ -4,7 +4,6 @@ class AccountConstraint
   end
   
   def matches?(request)
-    return false if request.subdomain == 'www'
     match = !!Account.from_env(request.env)
     match = !match if @inverse
     match

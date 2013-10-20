@@ -1,5 +1,8 @@
 class AccountsController < ApplicationController
   def show
-    raise ActionController::RoutingError unless current_account
+  end
+  
+  def missing
+    render status: 404
   end
 end
