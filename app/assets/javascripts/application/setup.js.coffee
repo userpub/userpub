@@ -1,4 +1,4 @@
-app = angular.module('userpub', ['ngAnimate', 'firebase', 'ngRoute', 'ngSanitize', 'ui.bootstrap'])
+app = angular.module('userpub', ['ngAnimate', 'firebase', 'ngRoute', 'ngSanitize', 'ui.bootstrap', 'emoji'])
 
 app.run ['$rootScope', 'angularFireAuth', ($rootScope, angularFireAuth)->
   $rootScope.firebase = new Firebase(state.firebase + '/')

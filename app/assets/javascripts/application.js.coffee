@@ -7,6 +7,7 @@
 #= require angular-route/angular-route
 #= require angular-sanitize/angular-sanitize
 #= require angular-bootstrap/ui-bootstrap
+#= require angular-emoji-filter/lib/emoji
 
 #= require application/setup
 #= require_tree ./application
