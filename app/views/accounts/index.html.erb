@@ -13,6 +13,18 @@
 <hr>
 <% end %>
 
-<div class="container"><div class="row"><div class="col-md-8 col-md-offset-2">
-<%= render "accounts/form", account: Account.new %>
-</div></div></div>
+<div class="container"><div class="row">
+  <div class="col-md-4">
+    <h2>New Accounts</h2>
+    <p>Userpub is a little different from most apps. We aren't going to make your
+      users create yet another password just to be able to chat. Instead Userpub
+      uses <%= link_to "Single Sign-On", "https://github.com/userpub/userpub/wiki/Single-Sign-On", target: "_blank" %>
+      to seamlessly integrate with your application.</p>
+    
+    <p>We provide you with your own subdomain on userpub.com that you can use for as
+      long as you'd like, but if you want to use your own domain name just enter
+      one on the right and create a <code>CNAME</code> record pointing to your
+      Userpub subdomain.</p>
+  </div>
+  <div class="col-md-8"><%= render "accounts/form", account: Account.new %></div>
+</div></div>
