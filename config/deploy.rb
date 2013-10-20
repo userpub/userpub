@@ -69,25 +69,31 @@ set :branch,     "master"
 role :app, LINODE_SERVER_HOSTNAME
 role :db,  LINODE_SERVER_HOSTNAME, :primary => true
 
+def fix_permissions!
+  # Fix Permissions
+  sudo "chown -R www-data:www-data #{current_path}"
+  sudo "chown -R www-data:www-data #{latest_release}"
+  sudo "chown -R www-data:www-data #{shared_path}/bundle"
+  sudo "chown -R www-data:www-data #{shared_path}/log"
+end
+
 # Add Configuration Files & Compile Assets
 after 'deploy:update_code' do
+  fix_permissions!
+  
   # Setup Configuration
   run "cp #{shared_path}/config/mongo.yml #{release_path}/config/mongo.yml"
   run "cp #{shared_path}/.env #{release_path}/.env"
 
   # Install Bower Components
-  run "cd #{release_path}; RAILS_ENV=production su - www-app -c 'bundle exec rake bower:install'"
+  run "cd #{release_path}; su -c 'RAILS_ENV=production bundle exec rake bower:install' - www-app "
   # Compile Assets
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
 
 # Restart Passenger
 deploy.task :restart, :roles => :app do
-  # Fix Permissions
-  sudo "chown -R www-data:www-data #{current_path}"
-  sudo "chown -R www-data:www-data #{latest_release}"
-  sudo "chown -R www-data:www-data #{shared_path}/bundle"
-  sudo "chown -R www-data:www-data #{shared_path}/log"
+  fix_permissions!
 
   # Restart Application
   run "touch #{current_path}/tmp/restart.txt"
