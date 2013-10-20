@@ -1,6 +1,6 @@
 app = angular.module('userpub')
 
-app.controller 'ChatCtrl', ($scope, angularFire)->
+app.controller 'ChatCtrl', ['$scope','angularFire', ($scope, angularFire)->
   $scope.messages = []
   ref = $scope.firebase.child("chat")
   
@@ -28,3 +28,4 @@ app.controller 'ChatCtrl', ($scope, angularFire)->
       text: $scope.draft.text
     
     $scope.draft.text = null
+]

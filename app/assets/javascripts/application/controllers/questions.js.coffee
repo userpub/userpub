@@ -1,4 +1,5 @@
 app = angular.module('userpub')
 
-app.controller 'QuestionsCtrl', ($scope)->
+app.controller 'QuestionsCtrl', ['$scope', ($scope)->
   
+]
