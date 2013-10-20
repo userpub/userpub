@@ -6,7 +6,7 @@ app.run ['$rootScope', 'angularFireAuth', ($rootScope, angularFireAuth)->
   angularFireAuth.initialize $rootScope.firebase,
     scope: $rootScope
     name: 'user'
-  angularFireAuth.login state.firebase_token
+  angularFireAuth.login state.firebase_token if state.firebase_token
 ]
   
 app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider)->

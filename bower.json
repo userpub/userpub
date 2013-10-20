@@ -16,7 +16,8 @@
       "angular-bootstrap":"",
       "angular-emoji-filter":"",
       "marked":"",
-      "animate.css":""
+      "animate.css":"",
+      "jquery":""
     },
     "resolutions": {
       "angular": "1.2.0-rc.3"
