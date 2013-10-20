@@ -11,7 +11,11 @@
       "angular-animate":"1.2.0-rc.3",
       "angular-resource":"1.2.0-rc.3",
       "angular-route":"1.2.0-rc.3",
-      "angular-fire": ""
+      "angular-sanitize":"1.2.0-rc.3",
+      "angular-fire": "",
+      "angular-bootstrap":"",
+      "angular-emoji-filter":"",
+      "marked":""
     },
     "resolutions": {
       "angular": "1.2.0-rc.3"
