@@ -19,6 +19,7 @@ class Account
     request = Rack::Request.new(env)
     
     host = request.host
+    Rails.logger.debug "Account: looking up account for #{request.host}"
     subdomain = host.split('.').first if host.include?(ENV['APP_HOST'])
     Account.where(:$or => [{subdomain: subdomain}, {host: host}]).first
   end
