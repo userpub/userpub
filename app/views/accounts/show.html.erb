@@ -20,8 +20,8 @@
     <div class="col-md-8 col-lg-9">
       <div class="chat-message-window" scroll-on-add="messages">
         <ul class="chat-messages">
-          <li ng-repeat="message in messages" class="chat-message" ng-init="authorIds[$index] = message.user.id">
-            <span class="author" ng-bind="message.user.name" ng-hide="authorIds[$index-1] == message.user.id"> Author Name</span>
+          <li ng-repeat="message in messages" class="chat-message" ng-init="authorIds[$index] = message.user.id" ng-class="{staff: message.user.staff}">
+            <span class="author username" ng-bind="message.user.name" ng-hide="authorIds[$index-1] == message.user.id"> Author Name</span>
             <span class="message" ng-bind-html="message.text | chatMessage">Content of the message goes here.</span>
           </li>
         </ul>
@@ -40,8 +40,8 @@
         <div class="panel-heading">Online Now</div>
         <div class="panel-body">
           <ul class="online-list">
-            <li ng-repeat="connection in connections">
-              <span ng-bind="connection.name">Username</span>
+            <li ng-repeat="connection in connections" ng-class="{staff: connection.staff}">
+              <span ng-bind="connection.name" class="username">Username</span>
             </li>
         </div>
       </div>

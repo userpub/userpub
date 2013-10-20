@@ -7,6 +7,10 @@
 .chat-message {
   font-size: 14px;
   
+  &.staff {
+    background: lighten(@brand-primary, 60%);
+  }
+  
   .author {
     font-weight: bold;
     display: block;
@@ -25,7 +29,7 @@
       font-size: 12px;
       font-family: "Source Code Pro", monospace;
       padding: 8px 10px;
-      background: transparent;
+      background: white;
     }
   }
 }

@@ -4,7 +4,7 @@ app.controller 'ChatCtrl', ['$scope','angularFire','$timeout', ($scope, angularF
   $scope.messages = []
   ref = $scope.firebase.child("chat")
   
-  angularFire ref.limit(100), $scope, "messages"
+  angularFire ref.limit(25), $scope, "messages"
   
   $scope.$watch 'messages', ->
     $timeout -> $(window).scrollTop(999999999) if $scope.bottomProximity < 200
@@ -16,16 +16,13 @@ app.controller 'ChatCtrl', ['$scope','angularFire','$timeout', ($scope, angularF
     out.name = user.name
     out.id = user.id
     out.staff = user.staff
+    out.admin = user.admin
     out.title = user.title if user.title?
     out
   
   $scope.messageKeypress = ($event)->
     $scope.sendMessage() if event.keyCode == 13 and !event.shiftKey
-  
-  $scope.lastMessageUserId = (index)->
-    debugger
-    $scope.messages[index-1]?.user?.id
-  
+    
   $scope.sendMessage = ->
     ref.push
       user: authorDetails($scope.user.d)

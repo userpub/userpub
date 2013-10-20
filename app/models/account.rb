@@ -23,4 +23,8 @@ class Account
     subdomain = host.split('.').first if host.include?(ENV['APP_HOST'])
     Account.find_by_subdomain(subdomain) || Account.find_by_host(request.host)
   end
+  
+  def make_token(claims)
+    JWT.encode(claims, secret)
+  end
 end

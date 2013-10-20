@@ -17,13 +17,14 @@ class User
   
   def self.from_jwt(jwt, account)
     user = account.users.find_by_uid(jwt.id)
-    user ||= User.new(uid: jwt.id)
+    user ||= User.new(uid: jwt.id, account: account)
     
     user.name = jwt.name
     user.email = jwt.email
     user.pic = jwt.pic
     user.title = jwt.title
     user.admin = jwt.admin
+    user.staff = jwt.staff
     
     user.save!
     
