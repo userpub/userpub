@@ -5,11 +5,11 @@
 </header>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 text-center"><a href="/demo"><img src="/images/screenshot.png" alt="Userpub Screenshot" class="img-responsive home-screenshot"></a></div>
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1 text-center"><a href="/demo" track-event="Clicked Demo Link" track-data='{"location":"home_screenshot"}'><img src="/images/screenshot.png" alt="Userpub Screenshot" class="img-responsive home-screenshot"></a></div>
 </div>
 
 <div class="text-center lead">
-  <a href="/demo" class="btn btn-primary btn-lg">Check out the Demo</a> or 
+  <a href="/demo" class="btn btn-primary btn-lg" track-event="Clicked Demo Link" track-data='{"location":"home"}'>Check out the Demo</a> or 
   <%= form_tag "/auth/persona/callback", "ng-controller" => "PersonaCtrl", "method" => "post", "style" => "display: inline-block;" do %>
     <input name="assertion" type="hidden">
     <button class="btn btn-warning btn-lg btn" ng-click="login()" type="button">Get Started Here</button>
@@ -21,7 +21,7 @@
     <div class="col-md-4 feature">
       <h3><i class="icon icon-comments-alt"></i> Classy Chat</h3>
       <p>Userpub has the niceties you want from a modern chat client. Autolinking,
-        emoji, and inline images come standard. We also highlight your team's
+        emoji, browser notifications, and inline images come standard. We also highlight your team's
         messages for the "official" touch.</p>
     </div>
     <div class="col-md-4 feature">

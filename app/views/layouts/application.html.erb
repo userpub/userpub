@@ -6,6 +6,7 @@
   <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Source+Code+Pro|Bree+Serif" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.ico" />
   <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+  <%= render "layouts/analytics" %>
   <script type="text/javascript">
     window.state = {
       user: <%=raw current_user.to_json %>,
