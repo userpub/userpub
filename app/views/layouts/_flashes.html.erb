@@ -1,0 +1,3 @@
+<div class="container"><% {alert: :danger, notice: :success}.each_pair do |f,a| %>
+  <% if flash[f] %><div class="alert alert-<%= a %>"><%= flash[f] %></div><% end %>
+  <% end %></div>

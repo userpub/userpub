@@ -18,6 +18,11 @@ class SessionsController < ApplicationController
     redirect_to "http://demo.#{ENV['APP_HOST']}/auth/jwt/callback?jwt=#{payload}"
   end
 
+  def account
+    session[:persona] = auth_hash.uid
+    redirect_to accounts_path
+  end
+
   def destroy
     reset_session
     redirect_to '/'

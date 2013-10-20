@@ -5,6 +5,8 @@ class Account
   key :subdomain, String, required: true
   key :host, String
   key :email, String, required: true
+  key :support_email, String
+  key :staff_domain, String
   key :login_url, String
   token :secret, size: 20
   timestamps!

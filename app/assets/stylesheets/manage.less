@@ -1,0 +1,30 @@
+.secret {
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  filter: blur(3px);
+  
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  
+  &:hover {
+    -webkit-filter: blur(0);  
+    -moz-filter: blur(0);
+    filter: blur(0);
+  }
+}
+
+.manage-header {
+  margin-bottom: 20px;
+  padding-top: 15px;
+  border-bottom: 3px solid @brand-primary;
+  h1 {
+    font-size: 1.6em;
+    float: left;
+    margin: 0;
+  }
+  
+  .btn {
+    margin-left: 10px;
+  }
+}

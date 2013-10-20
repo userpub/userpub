@@ -1,0 +1,38 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><% if account.new_record? %>Create a New Account<% else %>Update <%= account.name %><% end %></div>
+  <div class="panel-body">
+    <%= form_for account do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'FakeBlock', required: true %>
+        <span class="help-block">The title of the account that will be shown in the chat room heading.</span>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :subdomain %>
+        <%= f.text_field :subdomain, class: 'form-control', placeholder: 'fakeblock', required: true %>
+        <span class="help-block">Pick a subdomain for your account. You will be able to access your account from <b>your-subdomain.userpub.com</b>.</span>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :support_email %>
+        <%= f.text_field :support_email, class: 'form-control', placeholder: 'fakeblock.com' %>
+        <span class="help-block">The address users should email if no one is around to chat.</span>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :host, "Custom Domain" %>
+        <%= f.text_field :host, class: 'form-control', placeholder: 'pub.fakeblock.com' %>
+        <span class="help-block">Specify a custom domain that you will CNAME to <b>your-subdomain-userpub.com</b>. (Optional)</span>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :staff_domain %>
+        <%= f.text_field :staff_domain, class: 'form-control', placeholder: 'fakeblock.com' %>
+        <span class="help-block">Enter an email domain that will automatically be granted staff acesss. (Optional)</span>
+      </div>
+    
+      <button type="submit" class="btn btn-primary btn-block"><%= account.new_record? ? "Create" : "Update" %> Account</button>
+    <% end %>
+  </div>
+</div>

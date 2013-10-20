@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app='userpub.lander'>
 <head>
-  <title>Userpub - Hosted Group Chat Support for Startups</title>  
+  <title>Userpub - Manage Accounts</title>  
   <%= stylesheet_link_tag    "lander", media: "all" %>
   <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Source+Code+Pro|Bree+Serif" rel="stylesheet" type="text/css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -10,6 +10,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header class="manage-header clearfix">
+    <div class="container">
+      <h1>Userpub.</h1>
+      <p class="pull-right"><%= persona %> <a href="/logout" class="btn btn-default btn-sm">Sign Out</a></p>
+    </div>
+  </header>
+  <%= render "layouts/flashes" %>
   <%= yield %>
 </body>
 </html>

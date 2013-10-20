@@ -25,5 +25,13 @@ class ApplicationController < ActionController::Base
     render text: "Must be staff to do that.", status: 401 unless current_user.try(:staff?)
   end
   
-  helper_method :current_account, :current_user, :logged_in?
+  def persona_required
+    redirect_to "/", alert: "Must be logged in to see that." unless persona
+  end
+  
+  def persona
+    session[:persona]
+  end
+  
+  helper_method :current_account, :current_user, :logged_in?, :persona
 end
