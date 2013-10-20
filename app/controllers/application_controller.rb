@@ -17,5 +17,13 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
   
+  def account_required
+    render text: "Not Found", status: 404 unless current_account
+  end
+  
+  def staff_required
+    render text: "Must be staff to do that.", status: 401 unless current_user.try(:staff?)
+  end
+  
   helper_method :current_account, :current_user, :logged_in?
 end

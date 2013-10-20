@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     payload = JWT.encode({
       id: params[:name].gsub(" ","").underscore,
       name: params[:name],
-      email: 'demo@example.com',
+      email: "demo#{SecureRandom.hex(10)}@example.com",
       staff: false,
       admin: false
     }, account.secret)
