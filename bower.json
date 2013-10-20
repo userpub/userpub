@@ -17,7 +17,8 @@
       "angular-emoji-filter":"",
       "marked":"",
       "animate.css":"",
-      "jquery":""
+      "jquery":"",
+      "jquery-sticky":"git://github.com/garethdn/jquery-sticky.git"
     },
     "resolutions": {
       "angular": "1.2.0-rc.3"

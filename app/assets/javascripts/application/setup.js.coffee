@@ -1,12 +1,18 @@
-app = angular.module('userpub', ['ngAnimate', 'firebase', 'ngRoute', 'ngSanitize', 'ui.bootstrap', 'userpubServices'])
+app = angular.module('userpub', ['ngAnimate', 'firebase', 'ngRoute', 'ngSanitize', 'ui.bootstrap'])
 
 app.run ['$rootScope', 'angularFireAuth', ($rootScope, angularFireAuth)->
   $rootScope.firebase = new Firebase(state.firebase + '/')
   $rootScope.account = state.account
+  
   angularFireAuth.initialize $rootScope.firebase,
     scope: $rootScope
     name: 'user'
   angularFireAuth.login state.firebase_token if state.firebase_token
+  
+  $rootScope.$on "angularFireAuth:login", (evt, user)->
+    connections = $rootScope.firebase.child("connections")
+    ref = connections.push(user.d)
+    ref.onDisconnect().remove()
 ]
   
 # app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider)->

@@ -1,0 +1,14 @@
+{
+  "name": "jquery-sticky",
+  "homepage": "https://github.com/garethdn/jquery-sticky",
+  "version": "1.0.1",
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.1",
+    "commit": "5baf70de331231ff54a9e7fa81e8b51dd8165341"
+  },
+  "_source": "git://github.com/garethdn/jquery-sticky.git",
+  "_target": "*",
+  "_originalSource": "git://github.com/garethdn/jquery-sticky.git"
+}

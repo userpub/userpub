@@ -1,32 +1,51 @@
-<nav class="navbar navbar-default account-header navbar-fixed-top">
-  <div class="navbar-header">
-    <a class="navbar-brand" ng-bind="account.name" href="/">Userpub Account</a>
-  </div>
-  <div class="btn-group navbar-right navbar-btn account-menu" ng-show="user">
-    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" ><span class="name" ng-bind="user.d.name">Account Menu</span> <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="/logout">Sign Out</a>
-      </li>
-    </ul>
-  </div>
-  <a class="btn btn-default navbar-btn navbar-right account-menu" href="/auth/jwt" target="_self" ng-hide="user">Sign In</a>
-</nav>
+<header>
+  <nav class="navbar navbar-default account-header navbar-fixed-top"><div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" ng-bind="account.name" href="/">Userpub Account</a>
+    </div>
+    <div class="btn-group navbar-right navbar-btn account-menu" ng-show="user">
+      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" ><span class="name" ng-bind="user.d.name">Account Menu</span> <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="/logout">Sign Out</a>
+        </li>
+      </ul>
+    </div>
+    <a class="btn btn-default navbar-btn navbar-right account-menu" href="/auth/jwt" target="_self" ng-hide="user">Sign In</a>
+    </div></nav>
+</header>
 
-<section class="chat layout-card" ng-controller="ChatCtrl">
-  <div class="chat-message-window" scroll-on-add="messages">
-    <ul class="chat-messages">
-      <li ng-repeat="message in messages" class="chat-message" ng-init="authorIds[$index] = message.user.id">
-        <span class="author" ng-bind="message.user.name" ng-hide="authorIds[$index-1] == message.user.id"> Author Name</span>
-        <span class="message" ng-bind-html="message.text | chatMessage">Content of the message goes here.</span>
-      </li>
-    </ul>
-  </div>
-  <form ng-submit="sendMessage()" class="chat-box" ng-show="user">
-    <textarea class="form-control" rows="2" ng-model="draft.text" ng-keypress="messageKeypress($event)"></textarea><button type="submit" class="btn btn-primary">Send</button>
-  </form>
-  <div class="chat-box" ng-hide="user">
-    <p class='lead text-center chat-join'>Join the conversation! <a href="/auth/jwt" target="_self">Sign in Now</a>.</p>
+<section class="chat container" ng-controller="ChatCtrl">
+  <div class="row">
+    <div class="col-md-8 col-lg-9">
+      <div class="chat-message-window" scroll-on-add="messages">
+        <ul class="chat-messages">
+          <li ng-repeat="message in messages" class="chat-message" ng-init="authorIds[$index] = message.user.id">
+            <span class="author" ng-bind="message.user.name" ng-hide="authorIds[$index-1] == message.user.id"> Author Name</span>
+            <span class="message" ng-bind-html="message.text | chatMessage">Content of the message goes here.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="chat-box-container">
+        <form ng-submit="sendMessage()" class="chat-box container" ng-show="user">
+          <textarea class="form-control" rows="2" ng-model="draft.text" ng-keypress="messageKeypress($event)"></textarea><button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <div class="chat-box" ng-hide="user">
+          <p class='lead text-center chat-join'>Join the conversation! <a href="/auth/jwt" target="_self">Sign in Now</a>.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="col-md-4 col-lg-3 sidebar"><div class="sidebar-content" sticky="80">
+      <div class="panel panel-default sidebar-presence" ng-controller="PresenceCtrl">
+        <div class="panel-heading">Online Now</div>
+        <div class="panel-body">
+          <ul class="online-list">
+            <li ng-repeat="connection in connections">
+              <span ng-bind="connection.name">Username</span>
+            </li>
+        </div>
+      </div>
+    </div></aside>
   </div>
 </section>
 

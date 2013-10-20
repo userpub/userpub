@@ -1,36 +1,25 @@
 @import "custom_bootstrap/custom_bootstrap.less";
 
+body {
+  padding-top: 53px;
+  background: #f5f5f5 url(/images/ticks.png);
+}
+
+.sidebar-content {
+  padding-top: 25px;
+}
+
+.sidebar-content.stuck {
+  padding-top: 75px;
+}
+
+.chat-messages {
+  background: white;
+}
+
 .account-menu {
   margin-right: 10px;
 }
 
-.layout-card {
-  background: white;
-  padding: 10px;
-  box-shadow: 2px 2px 9px rgba(0,0,0,0.1);
-  border-radius: 3px;
-}
-
-.chat {
-  width: 50%;  
-  height: calc(~"100% - 53px");
-  top: 50px;
-  left: 0px;
-  float: left;
-  position: fixed;
-  padding: 0 0 57px;
-}
-
-.content {
-  width: 50%;
-  margin-left: 50%;
-  margin-top: 53px;
-  padding: 20px;
-  
-  > section > h2:first-child {
-    margin-top: 0;
-    margin-bottom: 0.5em;
-  }
-}
-
 @import "application/chat";
+@import "application/sidebar";
