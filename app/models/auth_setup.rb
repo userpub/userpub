@@ -4,11 +4,15 @@ class AuthSetup
   end
   
   def initialize(env)
-    account = Account.find_by_env(env)
-    return unless account
+    @env = env
+  end
+  
+  def configure!
+    @account = Account.find_by_env(@env)
+    return unless @account
     
     strategy = env['omniauth.strategy']
-    strategy.options.secret = account.secret
-    strategy.options.auth_url = account.login_url || '/login'
+    strategy.options.secret = @account.secret
+    strategy.options.auth_url = @account.login_url || '/login'
   end
 end
