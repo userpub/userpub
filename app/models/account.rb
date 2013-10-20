@@ -12,8 +12,8 @@ class Account
   timestamps!
   
   validates_uniqueness_of :subdomain, :host, :email
-  validates_format_of :subdomain, with: /^[a-z][a-z0-9]+$/
-  validates_format_of :host, with: /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/
+  validates_format_of :subdomain, with: /\A[a-z][a-z0-9]+$\z/
+  validates_format_of :host, with: /\A(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$\z/
   
   many :users
   
