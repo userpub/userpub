@@ -1,4 +1,8 @@
 Userpub::Application.routes.draw do
+  constraints host: ENV['APP_HOST'] do
+    match '*path', redirect("http://www.#{ENV['APP_HOST']}/%{path}")
+  end
+  
   constraints LanderConstraint.new do
     root to: 'lander#show', id: 'home'
   end
