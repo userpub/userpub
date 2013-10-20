@@ -40,4 +40,8 @@ class User
   def firebase_token
     JWT.encode({iat: Time.now.to_i, v: 0, d: as_json}, ENV['FIREBASE_SECRET'])
   end
+  
+  def jwt_token
+    JWT.encode({id: id.to_s, name: name, email: email, staff: staff, admin: admin, title: title, pic: pic}, account.secret)
+  end
 end

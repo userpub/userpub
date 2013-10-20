@@ -32,7 +32,7 @@ class Account
     JWT.encode(claims, secret)
   end
   
-  def is_staff_email?(email)
+  def staff_email?(email)
     email.split("@").last == staff_domain
   end
 end

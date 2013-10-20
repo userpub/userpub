@@ -40,7 +40,7 @@
         <div class="panel-heading">Online Now</div>
         <div class="panel-body">
           <ul class="online-list">
-            <li ng-repeat="connection in connections" ng-class="{staff: connection.staff}">
+            <li ng-repeat="connection in connections | orderBy:-staff:name" ng-class="{staff: connection.staff}">
               <span ng-bind="connection.name" class="username">Username</span>
             </li>
         </div>

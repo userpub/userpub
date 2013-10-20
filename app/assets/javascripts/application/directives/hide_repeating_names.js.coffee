@@ -1,6 +1,6 @@
 app = angular.module('userpub')
 
-app.directive 'hideRepeatingNames', [($timeout)->
+app.directive 'hideRepeatingNames', ['$timeout', ($timeout)->
   (scope, element, attrs)->
     scope.$watch 'messages', ->
       $timeout ->
