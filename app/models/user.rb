@@ -26,6 +26,8 @@ class User
     user.admin = jwt.admin
     user.staff = jwt.staff
     
+    user.staff = true if !jwt.key?(:staff) && account.staff_email?(jwt.email)
+    
     user.save!
     
     user

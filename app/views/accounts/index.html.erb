@@ -2,7 +2,7 @@
 <div class='container'>
   <h1>Your Userpubs</h1>
   <table class="table table-bordered">
-    <thead><tr><th>Name</th><th>Subdomain</th><th>Custom Domain</th><th>JWT Secret</th><th>Actions</th></thead>
+    <thead><tr><th>Name</th><th>Subdomain</th><th>Custom Domain</th><th>JWT Secret (Hover to Reveal)</th><th>Actions</th></thead>
     <tbody>
       <% @accounts.each do |account| %>
       <tr><th><%= account.name %></th><td><%= link_to account.subdomain, "http://#{account.subdomain}.#{ENV['APP_HOST']}" %></td><td><%= link_to account.host, "http://#{account.host}/" if account.host %></td><td class="secret"><%= account.secret %></td><td><%= link_to "Edit", edit_account_path(account), class: "btn btn-primary btn-xs" %></td></tr>
@@ -15,4 +15,4 @@
 
 <div class="container"><div class="row"><div class="col-md-8 col-md-offset-2">
 <%= render "accounts/form", account: Account.new %>
-  </div></div></div>
+</div></div></div>

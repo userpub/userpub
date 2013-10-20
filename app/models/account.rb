@@ -12,6 +12,8 @@ class Account
   timestamps!
   
   validates_uniqueness_of :subdomain, :host, :email
+  validates_format_of :subdomain, with: /^[a-z][a-z0-9]+$/
+  validates_format_of :host, with: /^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$/
   
   many :users
   
@@ -28,5 +30,9 @@ class Account
   
   def make_token(claims)
     JWT.encode(claims, secret)
+  end
+  
+  def is_staff_email?(email)
+    email.split("@").last == staff_domain
   end
 end
