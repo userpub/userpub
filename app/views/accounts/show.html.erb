@@ -22,7 +22,7 @@
         <ul class="chat-messages" hide-repeating-names>
           <li ng-repeat="message in messages" class="chat-message" ng-class="{staff: message.user.staff}">
             <span class="author username" ng-bind="message.user.name"> Author Name</span>
-            <span class="message" ng-bind-html="message.text | emoji | chatMessage">Content of the message goes here.</span>
+            <span class="message" ng-bind-html="message.text | autolink:_blank | emoji | chatMessage">Content of the message goes here.</span>
           </li>
         </ul>
       </div>
