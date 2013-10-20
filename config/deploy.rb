@@ -76,7 +76,7 @@ after 'deploy:update_code' do
   run "cp #{shared_path}/.env #{release_path}/.env"
 
   # Install Bower Components
-  run "cd #{release_path}; RAILS_ENV=production bundle exec rake bower:install"
+  run "cd #{release_path}; RAILS_ENV=production runuser -l www-app -c 'bundle exec rake bower:install'"
   # Compile Assets
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
