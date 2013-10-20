@@ -19,9 +19,9 @@
   <div class="row">
     <div class="col-md-8 col-lg-9">
       <div class="chat-message-window" scroll-on-add="messages">
-        <ul class="chat-messages">
-          <li ng-repeat="message in messages" class="chat-message" ng-init="authorIds[$index] = message.user.id" ng-class="{staff: message.user.staff}">
-            <span class="author username" ng-bind="message.user.name" ng-hide="authorIds[$index-1] == message.user.id"> Author Name</span>
+        <ul class="chat-messages" hide-repeating-names>
+          <li ng-repeat="message in messages" class="chat-message" ng-class="{staff: message.user.staff}">
+            <span class="author username" ng-bind="message.user.name"> Author Name</span>
             <span class="message" ng-bind-html="message.text | chatMessage">Content of the message goes here.</span>
           </li>
         </ul>

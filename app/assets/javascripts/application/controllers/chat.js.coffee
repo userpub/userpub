@@ -4,7 +4,7 @@ app.controller 'ChatCtrl', ['$scope','angularFire','$timeout', ($scope, angularF
   $scope.messages = []
   ref = $scope.firebase.child("chat")
   
-  angularFire ref.limit(25), $scope, "messages"
+  angularFire ref.limit(150), $scope, "messages"
   
   $scope.$watch 'messages', ->
     $timeout -> $(window).scrollTop(999999999) if $scope.bottomProximity < 200
