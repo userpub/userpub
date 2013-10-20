@@ -1,10 +1,14 @@
 app = angular.module('userpub')
 
-app.controller 'ChatCtrl', ['$scope','angularFire', ($scope, angularFire)->
+app.controller 'ChatCtrl', ['$scope','angularFire','$timeout', ($scope, angularFire, $timeout)->
   $scope.messages = []
   ref = $scope.firebase.child("chat")
   
   angularFire ref.limit(100), $scope, "messages"
+  
+  $scope.$watch 'messages', ->
+    $timeout -> $(window).scrollTop(999999999) if $scope.bottomProximity < 200
+  , true
   
   $scope.authorIds = []
   authorDetails = (user)->
