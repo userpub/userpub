@@ -5,7 +5,7 @@
     <thead><tr><th>Name</th><th>Subdomain</th><th>Custom Domain</th><th>JWT Secret (Hover to Reveal)</th><th>Actions</th></thead>
     <tbody>
       <% @accounts.each do |account| %>
-      <tr><th><%= account.name %></th><td><%= link_to account.subdomain, "http://#{account.subdomain}.#{ENV['APP_HOST']}" %></td><td><%= link_to account.host, "http://#{account.host}/" if account.host %></td><td class="secret"><%= account.secret %></td><td><%= link_to "Edit", edit_account_path(account), class: "btn btn-primary btn-xs" %></td></tr>
+      <tr><th><%= account.name %></th><td><%= link_to account.subdomain, "http://#{account.subdomain}.#{ENV['APP_HOST']}" %></td><td><%= link_to account.host, "http://#{account.host}/" if account.host %></td><td class="secret"><%= account.secret %></td><td><%= link_to "Edit", edit_account_path(account), class: "btn btn-primary btn-xs" %> <%= link_to "Test Login", token_account_path(account), class: 'btn btn-default btn-xs' %></td></tr>
       <% end %>
     </tbody>
   </table>

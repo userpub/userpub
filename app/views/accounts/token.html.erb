@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class='col-md-6 col-md-offset-3'>
+      <% if @payload %><div class="panel panel-default">
+      <div class="panel-heading">Generated Token</div><div class="panel-body">
+      <pre><%= @payload %></pre>
+      <h3>Login URL</h3>
+      <pre><%= link_to "http://#{@account.preferred_host}/auth/jwt/callback?jwt=#{@payload}", "http://#{@account.preferred_host}/auth/jwt/callback?jwt=#{@payload}", target: "_blank" %></pre>
+      </div></div>
+      <% end %>
+      
+      <h2>Generate an SSO Token</h2>
+      <p class='lead'>Here you can generate a JWT Token to authenticate to your account for testing or manual entry purposes.</p>
+      
+      <%= form_for :token do |f| %>
+        <div class="form-group">
+          <%= f.label :id, "ID" %>
+          <%= f.text_field :id, class: 'form-control', placeholder: '123', required: true %>
+          <span class="help-block">The id of the user.</span>
+        </div>  
+      
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control', placeholder: 'Bob User', required: true %>
+          <span class="help-block">The display name for the user.</span>
+        </div>
+      
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.text_field :email, class: 'form-control', placeholder: 'bob@example.com', required: true %>
+          <span class="help-block">The email for the user.</span>
+        </div>
+      
+        <div class="checkbox">
+          <%= f.check_box :staff %>
+          <%= f.label :staff, "Staff (User's posts will be highlighted as a staff member)" %>
+        </div>
+      
+        <button class="btn btn-block btn-primary" type="submit">Generate Token</button>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -2,7 +2,7 @@ class AccountsController < ApplicationController
   respond_to :html
   
   before_filter :persona_required, only: [:index, :create, :destroy, :edit, :update]
-  before_filter :find_account, only: [:update, :destroy, :edit]
+  before_filter :find_account, only: [:update, :destroy, :edit, :new_token, :create_token]
   layout 'manage', except: [:show]
   
   def show
@@ -18,6 +18,15 @@ class AccountsController < ApplicationController
     @account = Account.new({email: persona}.merge(params[:account]))
     flash[:notice] = "Successfully created account!" if @account.save
     respond_with @account
+  end
+  
+  def new_token
+    render action: :token
+  end
+  
+  def create_token
+    @payload = JWT.encode(params[:token].reject{|k,v| v.blank?}, @account.secret)
+    render action: :token
   end
 
   def destroy

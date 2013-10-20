@@ -13,7 +13,12 @@ Userpub::Application.routes.draw do
     root to: 'lander#show', id: 'home'
     post '/demo', to: 'sessions#demo'
     post '/auth/persona/callback', to: 'sessions#account'
-    resources :accounts
+    resources :accounts do
+      member do
+        get :token, to: "accounts#new_token"
+        post :token, to: "accounts#create_token"
+      end
+    end
     get '/:id', to: 'lander#show'
   end
   

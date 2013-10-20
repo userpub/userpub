@@ -19,6 +19,7 @@
   </header>
   <%= render "layouts/flashes" %>
   <%= yield %>
+  <% if @account %><hr><p class='text-center'>Back to <%= link_to 'Accounts List', accounts_path %></p><% end %>
   <%= render "layouts/footer" %>
 </body>
 </html>
