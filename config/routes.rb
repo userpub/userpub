@@ -1,5 +1,5 @@
 Userpub::Application.routes.draw do
-  constraints lambda{|request| [ENV['APP_HOST'], 'userpub.r13.railsrumble.com'].include?(request.host) } do
+  constraints host: /^(#{ENV['APP_HOST']}|userpub.r13.railsrumble.com)$/i do
     get '*path', to: redirect("http://www.#{ENV['APP_HOST']}/%{path}")
   end
 
