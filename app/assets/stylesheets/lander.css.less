@@ -2,11 +2,14 @@
 
 .lander-top {
   text-align: center;
-  
   h1 {
     font-size: 7em;
     margin: 0.3em 0 0;
     letter-spacing: -0.04em;
+    a {
+      color: @text-color;
+      &:hover { text-decoration: none; }
+    }
   }
   
   h2 {
@@ -36,4 +39,11 @@
   .app-info {
     padding-top: 70px;
   }
+}
+
+.home-screenshot {
+  box-shadow: 2px 2px 20px @brand-primary;
+  border: 3px solid @brand-primary;
+  border-radius: 5px;
+  margin: 20px 0;
 }

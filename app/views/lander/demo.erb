@@ -1,12 +1,11 @@
 <header class='lander-top'>
-  <h1>Userpub.</h1>
-  <h2>Want to take Userpub for a spin? Awesome, it couldn't be easier.</h2>
+  <h1><a href="/">Userpub.</a></h1>
+  <h2>Want to take Userpub for a spin? It couldn't be easier.</h2>
 </header>
 
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 demo-sign-in">
-      <p class="text-center"><i class="icon icon-hand-down"></i></p>
       <div class="panel panel-primary">
         <div class="panel-heading">Sign into the Demo Account
         </div>
@@ -18,13 +17,19 @@
                 <input type="text" class="form-control" placeholder="Maurice Moss" name="name">
               </div>
             </div>
-            <button type="submit" class="btn btn-default btn-block">Give it a Spin!</button>
+            <button type="submit" class="btn btn-warning btn-block">Give it a Spin!</button>
           <% end %>
         </div>
       </div>
       
+      <p class="text-center"><i class="icon icon-hand-up"></i></p>
       <p class="lead">Judging is hard, so I tried to make it easy. Just enter your name and you'll be up and running.</p>
       <p>Of course, it would be remiss not to point out that the demo was <b>super easy</b> to create because of Userpub's simple JSON Web Token single sign-on functionality. It takes less than 10 lines of code to integrate your app with Userpub, so really there's no excuse not to do it!</p>
+      
+      <hr>    
+      <p class="text-center">Want to make your own account?</p>
+      <a class="btn btn-primary btn-lg btn-block" href="/auth/persona">Get Started Here</a>
+   
     </div>
   </div>
 </div>

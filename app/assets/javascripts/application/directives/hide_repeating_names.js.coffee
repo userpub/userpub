@@ -1,6 +1,6 @@
 app = angular.module('userpub')
 
-app.directive 'hideRepeatingNames', ($timeout)->
+app.directive 'hideRepeatingNames', [($timeout)->
   (scope, element, attrs)->
     scope.$watch 'messages', ->
       $timeout ->
@@ -11,4 +11,5 @@ app.directive 'hideRepeatingNames', ($timeout)->
           if name == oldName
             $(@).addClass("ng-hide")
           oldName = name
-    , true  
+    , true
+]

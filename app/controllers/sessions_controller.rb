@@ -17,6 +17,11 @@ class SessionsController < ApplicationController
     }, account.secret)
     redirect_to "http://demo.#{ENV['APP_HOST']}/auth/jwt/callback?jwt=#{payload}"
   end
+
+  def destroy
+    reset_session
+    redirect_to '/'
+  end
   
   protected
   

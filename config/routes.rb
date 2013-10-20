@@ -16,7 +16,7 @@ Userpub::Application.routes.draw do
   
   constraints AccountConstraint.new do
     get '/auth/jwt/callback', to: 'sessions#create'
-    get '*path', to: 'accounts#show'
     root to: 'accounts#show', as: 'account_root'
+    get '/logout', to: 'sessions#destroy'
   end
 end

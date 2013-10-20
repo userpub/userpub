@@ -69,6 +69,8 @@ GEM
     factory_girl_rails (4.1.0)
       factory_girl (~> 4.1.0)
       railties (>= 3.0.0)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     ffi (1.9.0)
     formatador (0.2.4)
     gravatar-ultimate (1.0.3)
@@ -114,6 +116,7 @@ GEM
     mongo_mapper-token_keys (0.1.0)
       mongo_mapper
     multi_json (1.8.2)
+    multipart-post (1.2.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -127,6 +130,10 @@ GEM
     omniauth-jwt (0.0.2)
       jwt
       omniauth (~> 1.1)
+    omniauth-persona (0.0.1)
+      faraday
+      multi_json
+      omniauth (~> 1.0)
     plucky (0.6.6)
       mongo (~> 1.5)
     polyglot (0.3.3)
@@ -217,6 +224,7 @@ DEPENDENCIES
   mongo_mapper!
   mongo_mapper-token_keys
   omniauth-jwt (>= 0.0.2)
+  omniauth-persona
   rails (= 4.0.0)
   rspec-rails
   therubyracer

@@ -18,6 +18,7 @@ gem 'mongo_mapper', :git => "git://github.com/mongomapper/mongomapper.git"
 gem 'mongo_mapper-token_keys'
 
 gem 'omniauth-jwt', '>= 0.0.2'
+gem 'omniauth-persona'
 
 gem 'gravatar-ultimate'
 
