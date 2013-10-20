@@ -11,7 +11,7 @@ class Account
   token :secret, size: 20
   timestamps!
   
-  validates_uniqueness_of :subdomain, :host, :email, allow_blank: true
+  validates_uniqueness_of :subdomain, :host, allow_blank: true
   validates_format_of :subdomain, with: /\A[a-z][a-z0-9]+$\z/
   validates_format_of :host, with: /\A(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$\z/, allow_blank: true
   
