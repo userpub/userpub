@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class='col-md-6 col-md-offset-3'>
+      <div class="alert alert-info">If you want to generate your own tokens, <%= link_to "see the wiki", "https://github.com/userpub/userpub/wiki/Single-Sign-On", target: '_blank', class: 'alert-link' %>.</div>
       <% if @payload %><div class="panel panel-default">
       <div class="panel-heading">Generated Token</div><div class="panel-body">
       <pre><%= @payload %></pre>
