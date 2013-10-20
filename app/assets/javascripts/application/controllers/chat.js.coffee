@@ -16,13 +16,14 @@ app.controller 'ChatCtrl', ['$scope','angularFire','$timeout','$notification', (
   
   ref.on 'child_added', (snapshot)->
     message = snapshot.val()
+    $(window).scrollTop(999999999)
     $notification.info message.user.name, message.text if document.webkitHidden
     
   angularFire ref.limit(150), $scope, "messages"
   
-  $scope.$watch 'messages', ->
-    $timeout -> $(window).scrollTop(999999999) if $scope.bottomProximity < 800
-  , true
+  # $scope.$watch 'messages', ->
+  #   $timeout -> $(window).scrollTop(999999999) if $scope.bottomProximity < 800
+  # , true
   
   $scope.authorIds = []
   authorDetails = (user)->

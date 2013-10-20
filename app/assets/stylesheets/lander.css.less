@@ -1,5 +1,12 @@
 @import "custom_bootstrap/custom_bootstrap.less";
 
+@-webkit-keyframes float {
+  0% { .translate(0,0) }
+  33% { .translate(0,10px) }
+  67% { .translate(0,-10px) }
+  100% { .translate(0,0) }
+}
+
 .lander-top {
   text-align: center;
   h1 {
@@ -27,6 +34,9 @@
   .icon {
     color: #ddd;
     font-size: 6em;
+    &:before {
+      .animation(float 2s infinite);
+    }
   }
 }
 
@@ -48,6 +58,11 @@
   margin: 20px auto;
   max-height: 500px;
   max-width: 100%;
+  
+  .transition-transform(0.3s);
+  &:hover {
+    .scale(1.05);
+  }
 }
 
 @import "manage";
